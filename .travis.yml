@@ -11,4 +11,4 @@ install:
   - export PATH=$PATH:$HOME/.local/bin
 
 after_success:
-  - if [[ $TRAVIS_BRANCH == 'development' ]]; then eval $(aws ecr get-login --no-include-email --region us-west-1) && docker build -t geo-cache . && docker tag geo-cache:latest 341707006720.dkr.ecr.us-west-1.amazonaws.com/google-proxy:latest && docker push 341707006720.dkr.ecr.us-west-1.amazonaws.com/google-proxy:latest && chmod +x ./ecs-bin/ecs-deploy && ./ecs-bin/ecs-deploy -c google-proxy -n geo-cache -r us-east-1 -i 341707006720.dkr.ecr.us-west-1.amazonaws.com/google-proxy:latest; fi
+  - if [[ $TRAVIS_BRANCH == 'develop' ]]; then eval $(aws ecr get-login --no-include-email --region us-west-1) && docker build -t geo-cache . && docker tag geo-cache:latest 341707006720.dkr.ecr.us-west-1.amazonaws.com/google-proxy:latest && docker push 341707006720.dkr.ecr.us-west-1.amazonaws.com/google-proxy:latest && chmod +x ./ecs-bin/ecs-deploy && ./ecs-bin/ecs-deploy -c google-proxy -n geo-cache -r us-east-1 -i 341707006720.dkr.ecr.us-west-1.amazonaws.com/google-proxy:latest; fi
