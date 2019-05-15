@@ -14,6 +14,7 @@
     "app-bin": "^0.1.1",
     "lodash": "^4.17.11",
     "map-properties": "^0.1.2",
+    "moment": "^2.24.0",
     "multi-exec-async": "^0.2.0",
     "node-fetch": "^2.3.0",
     "redis-koa-app-rpf": "^0.6.16",
