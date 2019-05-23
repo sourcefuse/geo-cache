@@ -163,10 +163,6 @@ module.exports = {
             default: 'info',
             example: 'debug'
         },
-        timeZoneCacheDuration: {
-            description: 'duration for which a timestamp for timezone api will be same, values :- year, month, quarter, week, isoWeek, day, date, hour, minute',
-            default: 'day',
-        },
     }
 }
 ```
