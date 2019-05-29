@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint lib",
     "lint-fix": "eslint --fix lib",
-    "start": "node lib/index.js"
+    "start": "node lib/index.js",
+    "offline": "sls offline start"
   },
   "author": "@evanxsummers",
   "license": "ISC",
@@ -17,13 +18,15 @@
     "map-properties": "^0.1.2",
     "multi-exec-async": "^0.2.0",
     "node-fetch": "^2.3.0",
-    "redis-koa-app-rpf": "^0.6.16",
-    "render-html-rpf": "^0.1.2"
+    "redis": "^2.8.0",
+    "render-html-rpf": "^0.1.2",
+    "serverless-pseudo-parameters": "^2.4.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
-    "eslint-config-airbnb-base": "^13.1.0"
+    "serverless-offline": "^4.10.6"
   },
   "repository": {
     "type": "git",

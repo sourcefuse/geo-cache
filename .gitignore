@@ -5,3 +5,5 @@
 /.eslintcache
 /.idea
 /.vscode
+/.serverless
+serverless.yml

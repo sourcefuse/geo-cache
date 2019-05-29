@@ -1,0 +1,45 @@
+service: geo-cache
+
+plugins:
+  - serverless-offline
+  - serverless-pseudo-parameters
+
+package:
+  exclude:
+    - .env*
+    - serverless.yml*
+    - .git/**
+    - .vscode/**
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${opt:stage, self:custom.config.defaultStage}
+  profile: ${opt:profile}
+  region: ${opt:region}
+  environment:
+    GOOGLE_API_KEY: ${ssm:/relay/${self:custom.config.ssmKeyName}/key/google_api_key~true, self:custom.config.GOOGLE_KEY}
+    REDIS_HOST: ${ssm:/relay/${self:custom.config.ssmKeyName}/redis/host~true}
+    REDIS_PORT: ${ssm:/relay/${self:custom.config.ssmKeyName}/redis/port~true}
+    REDIS_PASSWORD: ${ssm:/relay/${self:custom.config.ssmKeyName}/redis/password~true}
+    REDIS_NAMESPACE: 'cache-geo'
+    EXPIRE_SECONDS: 1814400
+    SHORT_EXPIRE_SECONDS: 259200
+functions:
+  caching-metrics:
+    handler: lib/index.metricsApi
+    timeout: 30
+    events:
+      - http: 'GET /metrics'
+  caching-api:
+    handler: lib/index.mapsApi
+    timeout: 30
+    events:
+      - http: 'GET /maps/api/{apiType}/{responseType}'
+        private: true
+        request:
+          parameters:
+            paths:
+              apiType: true
+              responseType: true
+
