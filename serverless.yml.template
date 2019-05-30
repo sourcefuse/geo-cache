@@ -4,6 +4,11 @@ plugins:
   - serverless-offline
   - serverless-pseudo-parameters
 
+custom:
+  defaultStage: 'dev'
+  defaultRegion: 'us-west-1'
+  ssmKeyName: ${opt:ssm_key_name, self:provider.stage}
+
 package:
   exclude:
     - .env*
@@ -15,7 +20,6 @@ provider:
   name: aws
   runtime: nodejs10.x
   stage: ${opt:stage, self:custom.config.defaultStage}
-  profile: ${opt:profile}
   region: ${opt:region}
   environment:
     GOOGLE_API_KEY: ${ssm:/relay/${self:custom.config.ssmKeyName}/key/google_api_key~true, self:custom.config.GOOGLE_KEY}
@@ -25,6 +29,12 @@ provider:
     REDIS_NAMESPACE: 'cache-geo'
     EXPIRE_SECONDS: 1814400
     SHORT_EXPIRE_SECONDS: 259200
+  vpc:
+    securityGroupIds:
+      - ${opt:vpc_security_group_id, self:custom.VPC.SecurityGroup}
+    subnetIds:
+      - ${opt:vpc_subnet_id1, self:custom.VPC.SubNet1}
+      - ${opt:vpc_subnet_id2, self:custom.VPC.SubNet2}  
 functions:
   caching-metrics:
     handler: lib/index.metricsApi
