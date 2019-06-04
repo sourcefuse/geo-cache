@@ -3,6 +3,7 @@ service: geo-cache
 plugins:
   - serverless-offline
   - serverless-pseudo-parameters
+  - serverless-plugin-aws-alerts
 
 custom:
   defaultStage: 'dev'
@@ -37,11 +38,25 @@ provider:
 functions:
   caching-metrics:
     handler: lib/index.metricsApi
+    memorySize: 128
     timeout: 30
     events:
       - http: 'GET /metrics'
+    alarms:
+      - functionErrors
+      - name: InvocationError
+        namespace: 'AWS/Lambda'
+        description: 'Google api caching stats endpoint lambda error'
+        metric: Errors
+        threshold: 1
+        statistic: Sum
+        period: 300
+        evaluationPeriods: 1
+        comparisonOperator: GreaterThanOrEqualToThreshold
+        treatMissingData: missing
   caching-api:
     handler: lib/index.mapsApi
+    memorySize: 256
     timeout: 30
     events:
       - http: 'GET /maps/api/{apiType}/{responseType}'
@@ -51,4 +66,16 @@ functions:
             paths:
               apiType: true
               responseType: true
+    alarms:
+      - functionErrors
+      - name: InvocationError
+        namespace: 'AWS/Lambda'
+        description: 'Google Maps api caching endpoint lambda error'
+        metric: Errors
+        threshold: 1
+        statistic: Sum
+        period: 300
+        evaluationPeriods: 1
+        comparisonOperator: GreaterThanOrEqualToThreshold
+        treatMissingData: missing
 

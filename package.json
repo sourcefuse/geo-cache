@@ -20,6 +20,7 @@
     "node-fetch": "^2.3.0",
     "redis": "^2.8.0",
     "render-html-rpf": "^0.1.2",
+    "serverless-plugin-aws-alerts": "^1.2.4",
     "serverless-pseudo-parameters": "^2.4.0"
   },
   "devDependencies": {
