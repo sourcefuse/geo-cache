@@ -23,7 +23,6 @@ provider:
   stage: ${opt:stage}
   region: ${opt:region}
   environment:
-    GOOGLE_API_KEY: ${ssm:/relay/${opt:stage}/key/google_api_key~true}
     REDIS_HOST: ${ssm:/relay/${opt:stage}/redis/host~true}
     REDIS_PORT: ${ssm:/relay/${opt:stage}/redis/port~true}
     REDIS_NAMESPACE: 'cache-geo'
