@@ -28,6 +28,10 @@ provider:
     REDIS_NAMESPACE: 'cache-geo'
     EXPIRE_SECONDS: 1814400
     SHORT_EXPIRE_SECONDS: 259200
+  stackTags:
+    Environment: ${opt:stage}
+    Project: RelayHealth
+    Service: geo-cache
   vpc:
     securityGroupIds:
       - ${opt:vpc_security_group_id}
