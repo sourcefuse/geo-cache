@@ -19,7 +19,7 @@ package:
 
 provider:
   name: aws
-  runtime: nodejs8.9.4
+  runtime: nodejs8.10
   stage: ${opt:stage}
   region: ${opt:region}
   environment:
