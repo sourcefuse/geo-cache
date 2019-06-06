@@ -20,11 +20,11 @@
     "node-fetch": "^2.3.0",
     "redis": "^2.8.0",
     "render-html-rpf": "^0.1.2",
-    "serverless-plugin-aws-alerts": "^1.2.4",
     "serverless-pseudo-parameters": "^2.4.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
+    "serverless-plugin-aws-alerts": "^1.2.4",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
     "serverless-offline": "^4.10.6"
