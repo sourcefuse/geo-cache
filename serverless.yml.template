@@ -9,6 +9,10 @@ custom:
   defaultStage: 'dev'
   defaultRegion: 'us-west-1'
   ssmKeyName: ${opt:ssm_key_name, self:provider.stage}
+  alerts:
+    dashboards: true
+    topics:
+      alarm: "arn:aws:sns:#{AWS::Region}:#{AWS::AccountId}:aws-alarms-${opt:stage, self:custom.defaultStage}"
 
 package:
   exclude:
