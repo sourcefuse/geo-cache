@@ -49,18 +49,6 @@ functions:
     timeout: 30
     events:
       - http: 'GET /metrics'
-    alarms:
-      - functionErrors
-      - name: InvocationError
-        namespace: 'AWS/Lambda'
-        description: 'Google api caching stats endpoint lambda error'
-        metric: Errors
-        threshold: 1
-        statistic: Sum
-        period: 300
-        evaluationPeriods: 1
-        comparisonOperator: GreaterThanOrEqualToThreshold
-        treatMissingData: missing
   caching-api:
     handler: lib/index.mapsApi
     memorySize: 256
