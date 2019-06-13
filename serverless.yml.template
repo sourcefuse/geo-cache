@@ -90,7 +90,7 @@ functions:
         description: 'Google Maps api caching endpoint lambda error'
         metric: Duration
         threshold: 1500
-        statistic: Max
+        statistic: Maximum
         period: 60
         evaluationPeriods: 1
         comparisonOperator: GreaterThanOrEqualToThreshold
@@ -100,7 +100,7 @@ functions:
         description: 'Google Maps api caching endpoint lambda error'
         metric: UnreservedConcurrentExecutions
         threshold: 20
-        statistic: Max
+        statistic: Maximum
         period: 60
         evaluationPeriods: 1
         comparisonOperator: GreaterThanOrEqualToThreshold
