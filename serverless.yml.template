@@ -49,18 +49,6 @@ functions:
     timeout: 30
     events:
       - http: 'GET /metrics'
-    alarms:
-      - functionErrors
-      - name: InvocationError
-        namespace: 'AWS/Lambda'
-        description: 'Google api caching stats endpoint lambda error'
-        metric: Errors
-        threshold: 1
-        statistic: Sum
-        period: 300
-        evaluationPeriods: 1
-        comparisonOperator: GreaterThanOrEqualToThreshold
-        treatMissingData: missing
   caching-api:
     handler: lib/index.mapsApi
     memorySize: 256
@@ -81,8 +69,27 @@ functions:
         metric: Errors
         threshold: 1
         statistic: Sum
-        period: 300
+        period: 60
         evaluationPeriods: 1
         comparisonOperator: GreaterThanOrEqualToThreshold
         treatMissingData: missing
-
+      - name: Duration
+        namespace: 'AWS/Lambda'
+        description: 'Google Maps api caching endpoint lambda error'
+        metric: Duration
+        threshold: 1500
+        statistic: Maximum
+        period: 60
+        evaluationPeriods: 1
+        comparisonOperator: GreaterThanOrEqualToThreshold
+        treatMissingData: missing 
+      - name: ConcurrentExecution
+        namespace: 'AWS/Lambda'
+        description: 'Google Maps api caching endpoint lambda error'
+        metric: UnreservedConcurrentExecutions
+        threshold: 20
+        statistic: Maximum
+        period: 60
+        evaluationPeriods: 1
+        comparisonOperator: GreaterThanOrEqualToThreshold
+        treatMissingData: missing 
