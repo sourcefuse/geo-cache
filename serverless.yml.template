@@ -33,8 +33,8 @@ provider:
     REDIS_NAMESPACE: 'cache-geo'
     EXPIRE_SECONDS: 1814400
     SHORT_EXPIRE_SECONDS: 259200
-    REDIS_TOTAL_RETRY_TIME: 3600000
-    REDIS_RETRY_ATTEMPTS: 10
+    REDIS_TOTAL_RETRY_TIME: 10000
+    REDIS_RETRY_ATTEMPTS: 3
   stackTags:
     Environment: ${opt:stage}
     Project: RelayHealth
