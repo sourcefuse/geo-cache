@@ -29,9 +29,12 @@ provider:
   environment:
     REDIS_HOST: ${ssm:/relay/${opt:stage}/redis/host~true}
     REDIS_PORT: ${ssm:/relay/${opt:stage}/redis/port~true}
+    REDIS_TLS: ${ssm:/relay/${opt:stage}/redis/tls~true}
     REDIS_NAMESPACE: 'cache-geo'
     EXPIRE_SECONDS: 1814400
     SHORT_EXPIRE_SECONDS: 259200
+    REDIS_TOTAL_RETRY_TIME: 10000
+    REDIS_RETRY_ATTEMPTS: 3
   stackTags:
     Environment: ${opt:stage}
     Project: RelayHealth
