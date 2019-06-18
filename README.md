@@ -162,7 +162,7 @@ module.exports = {
             description: 'the logging level',
             default: 'info',
             example: 'debug'
-        }
+        },
     }
 }
 ```

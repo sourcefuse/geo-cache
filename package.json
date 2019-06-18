@@ -4,29 +4,35 @@
   "description": "Redis-based caching proxy for Google Maps API queries.",
   "main": "lib/index.js",
   "scripts": {
-    "lint": "eslint --cache src",
-    "start": "node --harmony lib/index.js"
+    "lint": "eslint lib",
+    "lint-fix": "eslint --fix lib",
+    "start": "node lib/index.js",
+    "offline": "sls offline start"
   },
-  "author": "@evanxsummers",
+  "author": "@sourcefuse",
   "license": "ISC",
   "dependencies": {
     "app-bin": "^0.1.1",
-    "lodash": "^4.17.4",
-    "map-properties": "^0.1.2",
-    "multi-exec-async": "^0.2.0",
-    "node-fetch": "^1.6.3",
-    "redis-koa-app-rpf": "^0.6.16",
-    "render-html-rpf": "^0.1.2"
+    "bluebird": "^3.5.5",
+    "geo-tz": "^5.0.4",
+    "lodash": "^4.17.11",
+    "node-fetch": "^2.3.0",
+    "redis": "^2.8.0",
+    "serverless-pseudo-parameters": "^2.4.0"
   },
   "devDependencies": {
-    "eslint": "^3.12.2"
+    "eslint": "^5.16.0",
+    "serverless-plugin-aws-alerts": "^1.2.4",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "serverless-offline": "^4.10.6"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/evanx/geo-cache.git"
+    "url": "https://github.com/sourcefuse/geo-cache.git"
   },
   "bugs": {
-    "url": "https://github.com/evanx/geo-cache/issues"
+    "url": "https://github.com/sourcefuse/geo-cache/issues"
   },
-  "homepage": "https://github.com/evanx/geo-cache#readme"
+  "homepage": "https://github.com/sourcefuse/geo-cache#readme"
 }
