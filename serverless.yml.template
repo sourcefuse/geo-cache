@@ -35,6 +35,7 @@ provider:
     SHORT_EXPIRE_SECONDS: 259200
     REDIS_TOTAL_RETRY_TIME: 10000
     REDIS_RETRY_ATTEMPTS: 3
+    LOGGER_LEVEL: 'info'
   stackTags:
     Environment: ${opt:stage}
     Project: RelayHealth
