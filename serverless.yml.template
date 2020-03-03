@@ -35,6 +35,12 @@ provider:
     SHORT_EXPIRE_SECONDS: 259200
     REDIS_TOTAL_RETRY_TIME: 10000
     REDIS_RETRY_ATTEMPTS: 3
+    NEW_RELIC_NO_CONFIG_FILE: true
+    NEW_RELIC_ACCOUNT_ID: ${ssm:/relay/${opt:stage}/new_relic/account_id~true}
+    NEW_RELIC_APP_NAME: ${ssm:/relay/${opt:stage}/new_relic/relay_geocache_app_name~true}
+    NEW_RELIC_TRUSTED_ACCOUNT_KEY: ${ssm:/relay/${opt:stage}/new_relic/account_id~true}
+    NEW_RELIC_LICENSE_KEY: ${ssm:/relay/${opt:stage}/new_relic/license_key~true}
+    NEW_RELIC_ACTIVATE: ${ssm:/relay/${opt:stage}/new_relic/activate~true}
   stackTags:
     Environment: ${opt:stage}
     Project: RelayHealth

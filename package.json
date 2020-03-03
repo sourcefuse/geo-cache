@@ -12,10 +12,12 @@
   "author": "@sourcefuse",
   "license": "ISC",
   "dependencies": {
+    "@newrelic/aws-sdk": "^1.1.2",
     "app-bin": "^0.1.1",
     "bluebird": "^3.5.5",
     "geo-tz": "^5.0.4",
     "lodash": "^4.17.15",
+    "newrelic": "^6.4.2",
     "node-fetch": "^2.3.0",
     "redis": "^2.8.0",
     "serverless-pseudo-parameters": "^2.4.0"
