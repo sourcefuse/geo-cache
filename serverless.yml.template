@@ -23,13 +23,14 @@ package:
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs12.x
   stage: ${opt:stage}
   region: ${opt:region}
   environment:
     REDIS_HOST: ${ssm:/relay/${opt:stage}/redis/host~true}
     REDIS_PORT: ${ssm:/relay/${opt:stage}/redis/port~true}
-    REDIS_TLS: ${ssm:/relay/${opt:stage}/redis/tls~true}
+    REDIS_TLS: ${ssm:/relay/${opt:stage}/redis/enable_tls~true}
+    REDIS_PASSWORD: ${ssm:/relay/${opt:stage}/redis/tls_password~true}
     REDIS_NAMESPACE: 'cache-geo'
     EXPIRE_SECONDS: 1814400
     SHORT_EXPIRE_SECONDS: 259200
