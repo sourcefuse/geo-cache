@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "app-bin": "^0.1.1",
-    "bluebird": "^3.5.5",
+    "bluebird": "^3.7.2",
     "geo-tz": "^5.0.4",
     "lodash": "^4.17.15",
     "node-fetch": "^2.3.0",
