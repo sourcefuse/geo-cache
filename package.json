@@ -16,7 +16,7 @@
     "bluebird": "^3.5.5",
     "geo-tz": "^5.0.4",
     "lodash": "^4.17.15",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^2.6.1",
     "redis": "^2.8.0",
     "serverless-pseudo-parameters": "^2.4.0"
   },
