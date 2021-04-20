@@ -18,7 +18,7 @@
     "lodash": "^4.17.15",
     "node-fetch": "^2.3.0",
     "redis": "^2.8.0",
-    "serverless-pseudo-parameters": "^2.4.0"
+    "serverless-pseudo-parameters": "^2.5.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
