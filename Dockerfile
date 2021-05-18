@@ -1,4 +1,4 @@
-FROM node:10.15.3
+FROM node:10.23.1
 ADD package.json .
 RUN npm install
 ADD lib lib
